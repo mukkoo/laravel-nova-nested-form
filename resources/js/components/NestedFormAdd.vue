@@ -22,16 +22,19 @@ export default {
       children: [],
     },
   },
-
+  data() {
+    counter: 0
+  },
   methods: {
     /**
      * Add a new child.
      */
     addChild() {
       let maxKey = 0;
+      this.counter++;
       if (this.field.children && this.field.children.length) {
         maxKey =
-          this.field.children[this.field.children.length - 1].key ||
+          this.field.children[this.counter].key ||
           Math.max.apply(
             Math,
             this.field.children.map(({ id }) => id)
